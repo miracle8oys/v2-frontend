@@ -30,22 +30,26 @@ const TransactionNavbar = ({
       <div className="flex gap-5 flex-wrap">
         <button
           onClick={() => setShowModal(true)}
-          className="py-1 px-2 bg-blue-500 rounded text-white font-semibold"
+          className="py-1 px-2 bg-blue-500 rounded text-white font-semibold border-2 border-black"
         >
           + Insert Transaction
         </button>
-        <label htmlFor="startdate">Start Date</label>
+        <label htmlFor="startdate" className="font-semibold">
+          Start Date
+        </label>
         <input
           value={firstDate}
           onChange={(e) => setFirstDate(e.target.value)}
-          className="border py-1 px-2 rounded border-gray focus:border-primary"
+          className="py-1 px-2 rounded border-gray focus:border-primary border-2 border-black"
           type="date"
         />
-        <label htmlFor="startdate">End Date</label>
+        <label htmlFor="startdate" className="font-semibold">
+          End Date
+        </label>
         <input
           value={secondDate}
           onChange={(e) => setSecondDate(e.target.value)}
-          className="border py-1 px-2 rounded border-gray focus:border-primary"
+          className="py-1 px-2 rounded border-gray focus:border-primary border-2 border-black"
           type="date"
         />
         <button

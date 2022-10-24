@@ -47,6 +47,11 @@ export default function ProductEditForm({
   };
 
   const handleSubmit = () => {
+    const username = localStorage.getItem("username");
+    if (!username) {
+      alert("Forbindden Access");
+      return false;
+    }
     const body: ProductType = {
       product_id,
       expired,

@@ -27,7 +27,7 @@ const Transaction = () => {
 
   return (
     <div className="pt-12 pb-20 w-full">
-      <div className="shadow-lg rounded-lg bg-white h-fit px-3">
+      <div className="shadow-lg rounded-lg bg-slate-300 h-fit px-3">
         <div className="py-5 px-3 flex justify-between">
           <h1 className="text-xl font-medium pt-[32px] pb-[24px]">
             Transactions
@@ -48,30 +48,30 @@ const Transaction = () => {
             <div className="sm:-mx-6 lg:-mx-8">
               <div className="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                 <div className="overflow-hidden  sm:rounded-lg">
-                  <table className="min-w-full">
+                  <table className="min-w-full border-2">
                     <thead className="bg-grey900  text-white">
                       <tr>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-semibold  tracking-wider text-left text-gray-700 uppercase"
                         >
                           No
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-semibold  tracking-wider text-left text-gray-700 uppercase"
                         >
                           Item List
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-semibold  tracking-wider text-left text-gray-700 uppercase"
                         >
                           Transaction Date
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-semibold  tracking-wider text-left text-gray-700 uppercase"
                         >
                           Action
                         </th>

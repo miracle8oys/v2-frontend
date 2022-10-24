@@ -20,7 +20,7 @@ function ProductList({
   setShowModal,
 }: ProductListProps) {
   return (
-    <tr key={item.id} className="bg-white odd:bg-tableOdd">
+    <tr key={item.id} className="bg-gray-50 odd:bg-tableOdd">
       <td className="py-2 px-6 text-md  font-medium text-gray-900 whitespace-nowrap">
         {n + 1 + offset}
       </td>

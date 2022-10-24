@@ -31,11 +31,9 @@ function Product() {
 
   return (
     <div className="w-full pt-20">
-      <div className="bg-white rounded-lg h-fit px-3 shadow-lg">
+      <div className="bg-slate-300 rounded-lg h-fit px-3 shadow-lg">
         <div className="flex justify-between">
-          <h1 className="text-xl font-medium pt-[32px] pb-[24px]">
-            Product List
-          </h1>
+          <h1 className="text-xl font-medium pl-3 pt-5">Product List</h1>
 
           <div className="flex justify-end gap-5 py-5 px-3">
             <input
@@ -45,23 +43,23 @@ function Product() {
                 setKeyword(e.target.value);
                 setPage(1);
               }}
-              className="border-2 px-2"
+              className="border-2 px-5 border-black py-1 rounded"
             />
             <div className="flex gap-2">
-              <p>Show</p>
+              <p className="font-semibold">Show</p>
               <select
                 value={limit}
                 onChange={(e) => {
                   setLimit(parseInt(e.target.value));
                   setPage(1);
                 }}
-                className="border-[1px] border-primary rounded"
+                className="border-2 border-black rounded"
               >
                 <option value={10}>10</option>
                 <option value={20}>20</option>
                 <option value={50}>50</option>
               </select>
-              <p>Entries</p>
+              <p className="font-semibold">Entries</p>
             </div>
             <button
               onClick={() => setShowModal(true)}
@@ -84,43 +82,43 @@ function Product() {
                       <tr>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-medium tracking-wider text-left text-gray-700"
                         >
                           No
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-900 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-medium tracking-wider text-left text-gray-900"
                         >
                           Product ID
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-900 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-medium tracking-wider text-left text-gray-900"
                         >
                           Profit
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-900 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-medium tracking-wider text-left text-gray-900"
                         >
                           Stock
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-900 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-medium tracking-wider text-left text-gray-900"
                         >
                           Expired
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-900 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-medium tracking-wider text-left text-gray-900"
                         >
                           Status
                         </th>
                         <th
                           scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-900 uppercase dark:text-gray-400"
+                          className="py-3 px-6 text-lg font-medium tracking-wider text-left text-gray-900"
                         >
                           Action
                         </th>

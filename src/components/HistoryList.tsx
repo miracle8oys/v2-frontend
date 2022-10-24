@@ -29,7 +29,7 @@ const HistoryList = ({
 
   return (
     <div className="py-3 w-full">
-      <div className="shadow-lg shadow-slate-300 rounded-lg bg-white h-fit px-3 border">
+      <div className="shadow-lg shadow-slate-500 rounded-lg bg-slate-300 h-fit px-3 border">
         <div className="py-5 px-3 flex justify-between items-center">
           <div
             onClick={() => setShowList((current) => !current)}
@@ -55,35 +55,38 @@ const HistoryList = ({
                 <div className="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                   <div className="overflow-hidden  sm:rounded-lg">
                     <table className="min-w-full">
-                      <thead className="bg-grey900  text-white">
+                      <thead className="bg-gray-50">
                         <tr>
                           <th
                             scope="col"
-                            className="py-3 px-6 text-md font-medium tracking-wider text-left text-gray-700 uppercase"
+                            className="py-3 px-6 text-lg font-semibold tracking-wider text-left text-gray-700"
                           >
                             No
                           </th>
                           <th
                             scope="col"
-                            className="py-3 px-6 text-md font-medium tracking-wider text-left text-gray-700 uppercase"
+                            className="py-3 px-6 text-lg font-semibold tracking-wider text-left text-gray-700"
                           >
                             Bundle Item Recomendations
                           </th>
                           <th
                             scope="col"
-                            className="py-3 px-6 text-md font-medium tracking-wider text-left text-gray-700 uppercase"
+                            className="py-3 px-6 text-lg font-semibold tracking-wider text-left text-gray-700"
                           >
                             Support
                           </th>
                           <th
                             scope="col"
-                            className="py-3 px-6 text-md font-medium tracking-wider text-left text-gray-700 uppercase"
+                            className="py-3 px-6 w-[25vw] text-md font-medium tracking-wider text-left text-gray-700 uppercase"
                           >
-                            Confidence
+                            <div className="flex justify-between">
+                              <p>Item Componen</p>
+                              <p>Confidence</p>
+                            </div>
                           </th>
                           {/* <th
                             scope="col"
-                            className="py-3 px-6 text-md font-medium tracking-wider text-left text-gray-700 uppercase"
+                            className="py-3 px-6 text-lg font-semibold tracking-wider text-left text-gray-700"
                           >
                             Action
                           </th> */}
@@ -96,26 +99,30 @@ const HistoryList = ({
                           </td>
                         </tr>
                         {data.map((item, n) => (
-                          <tr key={n} className="bg-white odd:bg-tableOdd">
-                            <td className="py-2 px-6 text-md font-normal text-gray-900 whitespace-nowrap border-y-2 border-y-slate-700">
+                          <tr key={n} className="bg-gray-50 odd:bg-tableOdd">
+                            <td className="py-2 px-6 text-md font-normal text-gray-900 border-2 border-slate-700">
                               {n + 1}
                             </td>
-                            <td className="py-2 px-6 text-md font-normal text-gray-900 whitespace-nowrap border-y-2 border-y-slate-700">
+                            <td className="py-2 px-6 text-md font-normal text-gray-900 border-2 border-slate-700">
                               {item.itemset.join(", ")}
                             </td>
-                            <td className="py-2 px-6 text-md font-normal text-gray-900 whitespace-nowrap border-y-2 border-y-slate-700">
+                            <td className="py-2 px-6 text-md font-normal text-gray-900 border-2 border-slate-700">
                               {item.support.toFixed(2)}%
                             </td>
-                            <td className="py-2 px-6 text-md text-gray-900 border-y-2 border-y-slate-700">
+                            <td className="py-1 w-[15vw] text-md font-normal text-gray-900 border-2 border-slate-700">
                               {item.confidence.map((i, n) => (
-                                <div
-                                  key={n}
-                                  className="flex gap-3 items-center"
-                                >
-                                  <HiOutlineArrowNarrowRight />
-                                  <p>{i.item}</p>
-                                  <p>{i.value.toFixed(2)}%</p>
-                                  <hr />
+                                <div key={n}>
+                                  <div className="flex justify-between pt-1 px-2 pr-12">
+                                    <p>{i.item}</p>
+                                    <p className="font-semibold">
+                                      {i.value.toFixed(2)}%
+                                    </p>
+                                  </div>
+                                  {item.confidence.length !== n + 1 && (
+                                    <h1 className="text-black bg-black">
+                                      <hr className="bg-black text-black font-bold w-max" />
+                                    </h1>
+                                  )}
                                 </div>
                               ))}
                             </td>

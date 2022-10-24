@@ -16,7 +16,6 @@ function History() {
 
   return (
     <div>
-      <p className="text-center font-semibold text-2xl pb-7 pt-3">History</p>
       {data.map((i) => (
         <HistoryList
           id={i.id!}

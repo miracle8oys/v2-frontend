@@ -11,15 +11,17 @@ const RecomendationsList = ({
 }: RecomendationsListProps) => {
   return (
     <div className="pt-7 pb-20 w-full">
-      <div className="shadow-lg shadow-slate-500 border-2 rounded-lg bg-white h-fit px-3">
+      <div className="shadow-lg shadow-slate-500 border-2 rounded-lg bg-slate-300 h-fit px-3">
         <div className="py-5 px-3 flex justify-between items-center">
           <h1 className="text-xl font-medium">Recomendations</h1>
-          <button
-            onClick={handleStoreRecomendation}
-            className="px-5 h-10 bg-blue-500 rounded font-semibold text-white"
-          >
-            Save
-          </button>
+          {data.length > 0 && (
+            <button
+              onClick={handleStoreRecomendation}
+              className="px-5 h-10 bg-blue-500 rounded font-semibold text-white"
+            >
+              Save
+            </button>
+          )}
         </div>
         <hr className="border-gray" />
         {/* {isLoading && <Loading />} */}
@@ -42,7 +44,7 @@ const RecomendationsList = ({
                           scope="col"
                           className="py-3 px-6 text-md font-medium tracking-wider text-left text-gray-700 uppercase"
                         >
-                          Bundle Item Recomendations
+                          Bundle Items Recomendations
                         </th>
                         <th
                           scope="col"
@@ -50,11 +52,15 @@ const RecomendationsList = ({
                         >
                           Support
                         </th>
+
                         <th
                           scope="col"
-                          className="py-3 px-6 text-md font-medium tracking-wider text-left text-gray-700 uppercase"
+                          className="py-3 px-6 w-[25vw] text-md font-medium tracking-wider text-left text-gray-700 uppercase"
                         >
-                          Confidence
+                          <div className="flex justify-between">
+                            <p>Item Componen</p>
+                            <p>Confidence</p>
+                          </div>
                         </th>
                         {/* <th
                             scope="col"
@@ -71,25 +77,39 @@ const RecomendationsList = ({
                         </td>
                       </tr>
                       {data.map((item, n) => (
-                        <tr key={n} className="bg-white odd:bg-tableOdd">
-                          <td className="py-2 px-6 text-md font-normal text-gray-900 whitespace-nowrap border-y-2 border-y-slate-700">
+                        <tr key={n} className="bg-gray-50 odd:bg-tableOdd">
+                          <td className="py-1 px-6 text-md font-normal text-gray-900 border-2 border-slate-700">
                             {n + 1}
                           </td>
-                          <td className="py-2 px-6 text-md font-normal text-gray-900 whitespace-nowrap border-y-2 border-y-slate-700">
+                          <td className="py-1 px-6 w-[30vw] text-md font-normal text-gray-900 border-2 border-slate-700">
                             {item.itemset.join(", ")}
                           </td>
-                          <td className="py-2 px-6 text-md font-normal text-gray-900 whitespace-nowrap border-y-2 border-y-slate-700">
+                          <td className="py-1 px-6 text-md font-normal text-gray-900 border-2 border-slate-700">
                             {item.support.toFixed(3)}%
                           </td>
-                          <td className="py-2 px-6 text-md text-gray-900 border-y-2 border-y-slate-700">
+                          <td className="py-1 w-[15vw] text-md font-normal text-gray-900 border-2 border-slate-700">
                             {item.confidence.map((i, n) => (
-                              <div key={n} className="flex gap-3 items-center">
-                                <HiOutlineArrowNarrowRight />
-                                <p>{i.item}</p>
-                                <p>{i.value.toFixed(2)}%</p>
-                                <hr />
+                              <div key={n}>
+                                <div className="flex justify-between pt-1 px-2 pr-12">
+                                  <p>{i.item}</p>
+                                  <p className="font-semibold">
+                                    {i.value.toFixed(2)}%
+                                  </p>
+                                </div>
+                                {item.confidence.length !== n + 1 && (
+                                  <h1 className="text-black bg-black">
+                                    <hr className="bg-black text-black font-bold w-max" />
+                                  </h1>
+                                )}
                               </div>
                             ))}
+                            {/* <td className="py-2 px-6 text-md text-gray-900 border-2 border-slate-700">
+                              {item.confidence.map((i, n) => (
+                                <div key={n}>
+                                  <p>{i.value.toFixed(2)}%</p>
+                                </div>
+                              ))}
+                            </td> */}
                           </td>
                           {/* <td className="py-2 px-6 text-md text-gray-500 whitespace-nowrap dark:text-gray-400">
                               <button className="p-2 bg-red-700 font-semibold text-white rounded">
